@@ -1,0 +1,47 @@
+Day3- Geeks for Geeks M-coloring problem of graph
+Interesting and easy problem
+T.C-O(N^m)
+S.C-O(N)
+Also Understood how to represent Graph
+Things are becoming interesting, getting grasp of Concepts, started getting intuition for problem
+Solution-
+class solve {
+    public boolean isValid(boolean graph[][],int colours[],int node,int color )
+    {
+        for(int i=0;i<graph[node].length;i++)
+        {
+            if(graph[node][i]==true)
+            {
+                if(colours[i]==color) return false;
+            }
+        }
+        return true;
+    }
+    public boolean helper(int node,boolean graph[][],int m,int n, int colours[])
+    {
+        if(node==n)
+        {
+            return true;
+        }
+        for(int i=0;i<m;i++)
+        {
+            if(isValid(graph,color,node,i))
+           { colours[node]=i;
+            if(helper(node+1,graph,colours,n) return true;
+            colours[node]=0;
+           }
+        }
+        
+    
+        return false;
+    }
+ 
+    public boolean graphColoring(boolean graph[][], int m, int n) {
+        int colours[]=new int[n];
+        Arrays.fill(colours,0);
+        return helper(0,graph,m,n,colours);
+        
+    }
+}
+Great Job on being consistent for three fucking days and solving some amazingly challenging problem, great going let's rock
+I know we can do it.
