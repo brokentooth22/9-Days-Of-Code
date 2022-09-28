@@ -2,7 +2,7 @@ Day3- Geeks for Geeks M-coloring problem of graph
 Interesting and easy problem
 T.C-O(N^m)
 S.C-O(N)
-Also Understood how to represent Graph
+Also Understood how to represent Graph and Arrays.fill function to fill an array with one value 
 Things are becoming interesting, getting grasp of Concepts, started getting intuition for problem
 Solution-
 class solve {
