@@ -1,0 +1,64 @@
+A geeks for geeks qstn which is easy, we need to find the path of the rat to reach to end point with only left,right, up and down direction in which it should move with given constraints 
+and print the all possible directions in lexicographical manner(first move D(as D comes first) then left(L is second in ABCD) likewise Right and then up.
+Day4 of Code-Rat in a Maze
+T.c-O(4^(m*n)), because on every cell we need to try 4 different directions.
+S.C-O(m*n) ,Maximum Depth of the recursion tree(auxiliary space).
+Code
+
+class Solution {
+    public static ArrayList<String> findPath(int[][] m, int n) {
+        int [][] vis= new int[n][n];
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                vis[i][j]=0;
+            }
+        }
+        List<String> ans=new ArrayList<>();
+       if (m[0][0] == 1) helper(0,0,m,n,"",vis,ans);
+        return ans;
+    }
+    public static void helper(int i,int j,int [][]m,int n,String move,int [][]vis,List<String> ans)
+    {
+        if(i==n-1 &&j==n-1)
+        {
+            ans.add(move);
+            return;
+        }
+    //down
+    if(i+1>=0  && vis[i+1][j]==0 && m[i+1][j]==1)
+    {
+        vis[i][j]=1;
+        helper(i+1,j,m,n,move+"D",vis,ans);
+         vis[i][j]=0;
+    }
+    
+     //left
+    if(j-1>=0  && vis[i][j-1]==0 && m[i][j-1]==1)
+    {
+        vis[i][j]=1;
+        helper(i,j-1,m,n,move+"L",vis,ans);
+         vis[i][j]=0;
+    }
+    
+     //right
+    if(j+1>=0  && vis[i][j+1]==0 && m[i][j+1]==1)
+    {
+        vis[i][j]=1;
+        helper(i,j+1,m,n,move+"R",vis,ans);
+         vis[i][j]=0;
+    }
+    
+     //up
+    if(i-1>=0  && vis[i-1][j]==0 && m[i-1][j]==1)
+    {
+        vis[i][j]=1;
+        helper(i-1,j,m,n,move+"U",vis,ans);
+         vis[i][j]=0;
+    }
+     
+        
+    }
+}
+Congratulations on maintaining the streak great going two questions in one day- now almost completed with the playlist of recursion only last question is remaining.
