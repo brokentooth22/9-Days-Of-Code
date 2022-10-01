@@ -6,3 +6,4 @@ Day3- M-coloring problem(gfg)
 Day4- 1) Palindrome Partitioning(leetcode)
       2) Rat in a maze(gfg)
 Day5- K-th Permutation Sequence(leetcode-60)
+Day6- Two sum
