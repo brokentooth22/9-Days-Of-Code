@@ -1,0 +1,24 @@
+Not a very productive day but glad i could maintain the streak despite being sleepy
+tomorrow i'll try to wrap up this whole topic 
+Problem on Array- Two Sum
+this is using hashmap
+ 
+ Code- 
+ class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> m=new HashMap<>();
+        for(int i=0;i<nums.length;i++)
+        {
+            int diff=target-nums[i];
+            if(m.containsKey(diff))
+            {
+                int ans[]= {m.get(diff),i};
+                return ans;
+            }
+            else m.put(nums[i],i);
+            
+        }
+        return new int[]{0,0};
+        
+    }
+}
