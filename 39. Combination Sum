@@ -1,0 +1,34 @@
+39. Combination Sum leetcode
+Again a practice question gave me more clarity than ever
+
+Code-
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+     List<Integer> temp=new ArrayList<>();
+        List<List<Integer>> ans=new ArrayList<>();
+        helper(0,ans,temp,candidates,target);
+        return ans;
+    }
+    
+    public void helper(int i,List<List<Integer>> ans, List<Integer> temp,int[] arr, int t)
+    {
+        if(i==arr.length)
+        {
+            
+            if(t==0){ ans.add(new ArrayList<>(temp));}
+            return;
+        }
+       
+        
+        if(arr[i]<=t)
+        {
+            temp.add(arr[i]);
+            helper(i,ans,temp,arr,t-arr[i]);
+            temp.remove(temp.size()-1);
+        }
+        helper(i+1,ans,temp,arr,t);
+        
+        
+        
+    }
+}
