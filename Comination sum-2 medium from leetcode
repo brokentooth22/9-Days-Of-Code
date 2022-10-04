@@ -1,0 +1,38 @@
+It's an easy yet so tricky questions with all those corner cases to check regarding keeping it unique
+Combination sum II from leetcode 
+Time Complexity:O(2^n*k)
+
+Reason: Assume if all the elements in the array are unique then the no. of subsequence you will get will be O(2^n). we also add the ds to our ans when we reach the base case that will take “k”//average space for the ds.
+
+Space Complexity:O(k*x)
+
+Reason: if we have x combinations then space will be x*k where k is the average length of the combination.
+
+Code-
+class Solution {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> ans=new ArrayList<>();
+        Arrays.sort(candidates);
+        helper(candidates,0,target,ans,new ArrayList<>());
+        return ans;
+        
+    }
+    public void helper(int[] array,int ind,int target, List<List<Integer>> ans,List<Integer> ds)
+    {
+     if(target==0) 
+     {
+         ans.add(new ArrayList<>(ds));
+     }
+    for(int i=ind;i<array.length;i++)
+    {
+        if(i!=ind && array[i]==array[i-1]) continue;
+        if(array[i]>target) break;
+        
+        ds.add(array[i]);
+        helper(array,i+1,target-array[i],ans,ds);
+        ds.remove(ds.size()-1);
+        
+    }
+        
+    }
+}
