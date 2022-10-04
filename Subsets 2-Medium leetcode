@@ -1,0 +1,35 @@
+
+Subsets 2 problem from leetcode
+Understood the tree structure
+Not a difficult one but little tricky
+Time Complexity: O(2^n) for generating every subset and O(k)  to insert every subset in another data structure if the average length of every subset is k. Overall O(k * 2^n).
+
+Space Complexity: O(2^n * k) to store every subset of average length k. Auxiliary space is O(n)  if n is the depth of the recursion tree.
+
+Code-
+class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<Integer> ds= new ArrayList<>();
+        List<List<Integer>> ans=new ArrayList<>();
+        Arrays.sort(nums);
+        helper(0,nums,ds,ans);
+        return ans;
+        
+    }
+    public void helper(int ind, int[] nums,List<Integer> ds, List<List<Integer>> ans)
+    {
+        
+        ans.add(new ArrayList<>(ds));
+        
+        for(int i=ind;i<nums.length;i++)
+        {
+            if(i!=ind && nums[i]==nums[i-1]) continue;
+            ds.add(nums[i]);
+            helper(i+1,nums,ds,ans);
+            ds.remove(ds.size()-1); 
+        }
+        
+        
+        
+    }
+}
