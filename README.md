@@ -11,4 +11,5 @@ Day 7- 1) Check if Array Is Sorted and Rotated(Leetcode- Array easy)
        2)Subsets(recursion revision)
        3)Combination Sum-1(recursion revision)
 Day8- 1) Subsets-2 now start using looping method
-      2) Combination sum-2
+      2) Combination sum-2(Recursion revision
+      3)Arrays- Sort colors or Sort 0's 1's and 2's
