@@ -1,0 +1,51 @@
+Sort colors -Leetcode Question
+Same question is available on GFG with the name Sort 0's 1's and 2's
+Its an Array Question
+Maza Aya
+This algorithm is known as dutch national flag algorithm uses three pointers approach
+T.C- O(N)
+S.C-O(1)
+Code-
+
+class Solution {
+    public void sortColors(int[] nums) {
+        int l=0;
+        int mid=0;
+        int high=nums.length-1;
+        int temp;
+        while(mid<=high)
+        {
+            switch(nums[mid])
+            {
+                case 0: 
+                    {
+                    temp=nums[l]; 
+                    nums[l]=nums[mid];
+                    nums[mid]=temp;
+                    mid++;
+                    l++;
+                    break;
+                    }
+                case 1:
+                    {
+                        mid++; 
+                        break;
+                    }  
+                    
+                case 2: 
+                    {
+                    temp=nums[mid];
+                    nums[mid]=nums[high];
+                    nums[high]=temp;
+                    high--;
+                    break;  
+                    } 
+            }
+            
+            
+            
+            
+            
+        }
+    }
+}
